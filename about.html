@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="GYM MANAGEMENT SYSTEM - сучасний тренажерний зал з професійним обладнанням та кращими тренерами.">
+    <title>Gym</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo"><span>GYM MANAGEMENT SYSTEM</span></a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#home">Головна</a></li>
+                    <li><a href="#cabinet-section">Особистий кабінет</a></li>
+                    <li><a href="#pricing">Ціни</a></li>
+                    <li><a href="#contacts">Контакти</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-overlay"></div>
+            <div class="container hero-content">
+                <h1>Стань сильнішим <br><span>вже сьогодні</span></h1>
+                <p>Професійне обладнання, кращі тренери та атмосфера, що мотивує на результат.</p>
+                <a href="#pricing" class="btn btn-primary">👉 Дізнатися про абонемент</a>
+            </div>
+        </section>
+
+        <section id="cabinet-section" class="clients-section">
+            <div class="container">
+                <div id="login-section" class="login-container">
+                    <h2 class="section-title">Вхід у кабінет</h2>
+                    <div class="login-form">
+                        <p>Введіть номер телефону для доступу до ваших тренувань</p>
+                        <input type="tel" id="phone-input" placeholder="+380XXXXXXXXX" class="form-input" aria-label="Номер телефону">
+                        <button id="login-btn" class="btn btn-primary">Увійти</button>
+                        <p id="login-error" class="error-message" aria-live="polite"></p>
+                    </div>
+                </div>
+
+                <div id="cabinet-data" style="display: none;">
+                    <h2 class="section-title">Вітаємо, <span id="cab-name"></span>!</h2>
+                    
+                    <article class="calendar-wrapper">
+                        <header class="calendar-header">
+                            <button id="prev-week" class="nav-btn" aria-label="Попередній тиждень">&lt;</button>
+                            <h3 id="month-year-display" style="text-transform: capitalize;">Місяць Рік</h3>
+                            <button id="next-week" class="nav-btn" aria-label="Наступний тиждень">&gt;</button>
+                        </header>
+
+                        <div class="calendar-week-container">
+                            <div class="calendar-week">
+                                <div class="week-days">
+                                    <span>Пн</span><span>Вт</span><span>Ср</span><span>Чт</span><span>Пт</span><span>Сб</span><span>Нд</span>
+                                </div>
+                                <div class="week-dates" id="week-dates">
+                                    </div>
+                                <div class="week-slots" id="week-slots">
+                                    </div>
+                            </div>
+                        </div>
+
+                        <div id="training-details" class="training-details" style="display: none;"></div>
+                    </article>
+                    
+                    <div style="text-align: center; margin-top: 30px;">
+                        <button id="logout-btn" class="btn btn-outline">Вийти з кабінету</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="pricing" class="pricing-section">
+            <div class="container">
+                <h2 class="section-title">Обери свій тариф</h2>
+                
+                <div class="pricing-cards">
+                    <article class="card">
+                        <h3>Разове тренування</h3>
+                        <p class="price">500 <span>грн</span></p>
+                        <ul>
+                            <li>Без тренера</li>
+                            <li>Доступ до всіх зон</li>
+                            <li>Час не обмежений</li>
+                        </ul>
+                    </article>
+
+                    <article class="card popular">
+                        <div class="badge">З тренером</div>
+                        <h3>Разове тренування</h3>
+                        <p class="price">900 <span>грн</span></p>
+                        <ul>
+                            <li>З персональним тренером</li>
+                            <li>Індивідуальна програма</li>
+                            <li>Доступ до всіх зон</li>
+                        </ul>
+                    </article>
+
+                    <article class="card">
+                        <h3>Абонемент тренувань</h3>
+                        <p class="price">3000 <span>грн</span></p>
+                        <ul>
+                            <li>З персональним тренером</li>
+                            <li>Складання плану харчування</li>
+                            <li>Заморозка до 7 днів</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contacts" class="footer">
+        <div class="container footer-content">
+            <div class="footer-info">
+                <h3><span>Gym</span></h3>
+                <p>Твій шлях до ідеального тіла починається тут.</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Gym. Всі права захищено. Вартість разового тренування від 500 грн.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,175 @@
+/* =========================================
+   Змінні та базові стилі
+   ========================================= */
+:root {
+    --bg-color: #0f1014;
+    --surface-color: #1a1c23;
+    --primary-color: #e63946; 
+    --text-main: #f1f2f6;
+    --text-muted: #a4b0be;
+    --success-color: #2ed573;
+    --danger-color: #ff4757;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth; 
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+/* =========================================
+   Загальні класи
+   ========================================= */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+h1, h2, h3 { text-transform: uppercase; letter-spacing: 1px; }
+.section-title { text-align: center; font-size: 2.5rem; margin-bottom: 3rem; color: var(--text-main); }
+
+/* =========================================
+    Кнопки
+   ========================================= */
+.btn {
+    display: inline-block;
+    padding: 15px 30px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: var(--transition);
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+.btn-primary { background-color: var(--primary-color); color: #fff; }
+.btn-primary:hover { background-color: #d62828; transform: translateY(-3px); box-shadow: 0 5px 15px rgba(230, 57, 70, 0.4);}
+.btn-outline { background-color: transparent; border-color: var(--text-muted); color: var(--text-main);}
+.btn-outline:hover { border-color: var(--primary-color); color: var(--primary-color); transform: translateY(-3px); }
+.form-input { width: 100%; padding: 15px; margin-bottom: 20px; background-color: var(--bg-color); border: 1px solid rgba(255,255,255,0.1); color: var(--text-main); border-radius: 4px; font-size: 1rem; outline: none; transition: var(--transition); }
+.form-input:focus { border-color: var(--primary-color); }
+.error-message { color: var(--danger-color) !important; margin-top: 15px; font-size: 0.9rem; font-weight: bold; }
+.badge { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background-color: var(--primary-color); color: #fff; padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; text-transform: uppercase; }
+.status { padding: 5px 10px; border-radius: 20px; font-size: 0.85rem; font-weight: bold; }
+.status.active { background-color: rgba(46, 213, 115, 0.1); color: var(--success-color); }
+.status.expired { background-color: rgba(255, 71, 87, 0.1); color: var(--danger-color);}
+
+/* =========================================
+   4. Навігація
+   ========================================= */
+.navbar { position: fixed; top: 0; width: 100%; padding: 20px 0; background-color: transparent; transition: var(--transition); z-index: 1000; }
+.navbar.scrolled { background-color: rgba(15, 16, 20, 0.95); padding: 15px 0; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); backdrop-filter: blur(10px); }
+.nav-container { display: flex; justify-content: space-between; align-items: center; }
+.logo { font-size: 1.8rem; font-weight: 900; color: var(--text-main); text-decoration: none; }
+.logo span { color: var(--primary-color);}
+.nav-links { list-style: none; display: flex; gap: 30px; }
+.nav-links a { color: var(--text-main); text-decoration: none; font-weight: 500; transition: var(--transition); }
+.nav-links a:hover { color: var(--primary-color); }
+
+/* =========================================
+   5. Головний банер
+   ========================================= */
+.hero { position: relative; height: 100vh; min-height: 600px; display: flex; align-items: center; background-size: cover; background-position: center; background-attachment: fixed; }
+.hero-overlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(15,16,20,0.95) 0%, rgba(15,16,20,0.6) 50%, rgba(15,16,20,0.2) 100%); }
+.hero-content { position: relative; z-index: 1; max-width: 600px; animation: fadeIn 1s ease-in-out; }
+.hero-content h1 { font-size: 4rem; line-height: 1.1; margin-bottom: 20px; }
+.hero-content h1 span { color: var(--primary-color);}
+.hero-content p { font-size: 1.2rem; color: var(--text-muted); margin-bottom: 30px; }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================================
+   Прайс-лист
+   ========================================= */
+.pricing-section { padding: 80px 0; background-color: var(--surface-color); }
+.pricing-cards { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
+.card { background-color: var(--bg-color); padding: 40px 30px; border-radius: 8px; width: 330px; text-align: center; transition: var(--transition); position: relative; border: 1px solid rgba(255,255,255,0.05); }
+.card:hover { transform: translateY(-10px); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+.card h3 { font-size: 1.5rem; margin-bottom: 15px; color: var(--text-muted); }
+.card .price { font-size: 2.5rem; font-weight: bold; color: var(--text-main); margin-bottom: 25px; }
+.card .price span { font-size: 1rem; color: var(--text-muted); font-weight: normal; }
+.card ul { list-style: none; margin-bottom: 30px; }
+.card ul li { margin-bottom: 15px; color: var(--text-muted); border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 10px; }
+.card.popular { background-color: #242730; border: 2px solid var(--primary-color); transform: scale(1.05); }
+.card.popular:hover { transform: scale(1.05) translateY(-10px); }
+.card.popular h3 { color: var(--primary-color); }
+
+/* =========================================
+   Календар & Логгін
+   ========================================= */
+.login-container { max-width: 500px; margin: 0 auto; text-align: center; background-color: var(--surface-color); padding: 40px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); }
+.login-form p { color: var(--text-muted); margin-bottom: 20px; }
+.cabinet-grid { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
+.cab-card { text-align: left; width: 100%; max-width: 400px; }
+.cab-card ul li { display: flex; justify-content: space-between; align-items: center; }
+.cab-card strong { color: var(--text-main); }
+#cab-trainer-phone-link { color: var(--primary-color); text-decoration: none; font-weight: bold; }
+
+/* --- Стилі для календаря --- */
+.calendar-wrapper { background-color: var(--surface-color); padding: 30px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); max-width: 900px; margin: 0 auto; }
+.calendar-header { display: flex; justify-content: flex-start; align-items: center; gap: 15px; margin-bottom: 25px; }
+.nav-btn { background: none; border: none; color: var(--text-main); font-size: 1.5rem; cursor: pointer; font-weight: bold; transition: var(--transition); }
+.nav-btn:hover { color: var(--primary-color); }
+.calendar-week-container { overflow-x: auto; padding-bottom: 10px; }
+.calendar-week { min-width: 600px;  }
+.week-days, .week-dates, .week-slots { display: grid; grid-template-columns: repeat(7, 1fr); gap: 10px; text-align: center; }
+.week-days span { color: var(--text-muted); font-size: 0.9rem; font-weight: 500; }
+.date-circle { display: flex; align-items: center; justify-content: center; width: 35px; height: 35px; border-radius: 50%; color: var(--text-muted); margin: 10px auto; transition: var(--transition); }
+.date-circle.has-training { color: var(--text-main); font-weight: bold; cursor: pointer; }
+.date-circle.selected { border: 2px solid var(--primary-color); color: var(--primary-color); }
+.slot-card { background-color: var(--bg-color); border: 1px solid rgba(255,255,255,0.05); border-radius: 6px; height: 80px; padding: 10px; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; transition: var(--transition); }
+.slot-card.has-data { border-left: 4px solid var(--primary-color); cursor: pointer; background-color: #1e212a; }
+.slot-card.has-data:hover, .slot-card.selected { border-color: var(--primary-color); box-shadow: 0 4px 10px rgba(230, 57, 70, 0.2); }
+.slot-title { font-size: 0.9rem; font-weight: bold; color: var(--text-main); display: flex; align-items: center; gap: 5px; }
+.slot-time { font-size: 0.8rem; color: var(--text-muted); margin-top: 5px; }
+.training-details { margin-top: 30px; padding: 20px; background-color: var(--bg-color); border-radius: 8px; border-left: 4px solid var(--primary-color); animation: fadeIn 0.3s ease-in-out; }
+.training-details p { margin-bottom: 10px; }
+.training-details a { color: var(--primary-color); text-decoration: none; font-weight: bold; }
+
+/* =========================================
+   Футер
+   ========================================= */
+.footer { background-color: #08080a; padding: 60px 0 20px; }
+.footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px; }
+.footer-info h3 span { color: var(--primary-color); } 
+.footer h4 { margin-bottom: 20px; color: #fff; } 
+.footer p, .footer a { color: var(--text-muted); text-decoration: none; margin-bottom: 10px; display: block; transition: var(--transition); }
+.footer a:hover { color: var(--primary-color); }
+.footer-bottom { text-align: center; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); color: var(--text-muted); font-size: 0.9rem; }
+
+/* =========================================
+    Медіа-запити
+   ========================================= */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; 
+    }
+    
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .card.popular {
+        transform: scale(1);
+    }
+
+    .card.popular:hover {
+        transform: translateY(-10px);
+    }
+    
+    .pricing-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+}
